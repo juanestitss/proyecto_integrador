@@ -1,0 +1,151 @@
+ * {
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  font-family:sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  background: #e0d2db;
+  color: white;
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.sidebar h2 {
+  /* margin-bottom: 20px;
+  margin-left: 35px; */
+  background-color: #5b2366;
+  text-align: center;
+ 
+}
+
+.sidebar nav ul {
+  list-style: none;
+    /* margin-left: 35px; */
+    background-color: #5b2366;
+   
+}
+
+.sidebar nav ul li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.logout {
+  margin-top: 30px;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+/* Efecto al pasar el mouse botones */
+.logout:hover {
+  background: #d1b5c1; 
+}
+.profile {
+  flex: 1;
+  background: linear-gradient(to bottom, #ff85c1, #f5b7b7);
+  padding: 20px 40px 100% 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 18px;
+  
+}
+
+.profile h2 {
+  background: #c58be2;
+  color: black;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.form-section h3 {
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  margin: 20px 0;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.form-section input{
+  width: 30%;
+ 
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+
+
+.menu-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  cursor: pointer;
+
+  
+}
+
+.menu-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+footer{
+  margin-top: 30px;
+  text-align: right;
+}
+
+.buttons {
+ text-align: right;
+  font-size: 20px;
+  margin-top: 25%;
+}
+
+.logo-container{
+ text-align: right;
+   border-radius: 10px;
+
+ .logo {
+  border-radius: 10px; 
+}
+
+
+}
+

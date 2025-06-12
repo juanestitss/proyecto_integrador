@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Asistencia</title>
+    <link rel="stylesheet" href="CSS/asistencia.css">
+    <link rel="icon" href="images/favicon.jpg" />
+    
+</head>
+
+<body>
+
+    <div class="header">Asistencia</div>
+
+    <div class="container">
+
+        <div class="top-bar">
+            <div class="grupo-select">Grupos</div>
+            <div class="top-bar img">
+                <a href="iniciosesión.html" target="_blank"> 
+                    <img src="images/LogoCESDE.JPG" alt="logo">
+                </a>
+            </div>
+        </div>
+
+        <div class="registro-title">Registro de Asistencias</div>
+
+        <form method="GET" action="">
+            <div class="table">
+                <div class="row header-row">
+                    <div class="cell">Estudiante</div>
+                    <div class="cell">Presente</div>
+                    <div class="cell">Ausente</div>
+                    <div class="cell">Excusa</div>
+                    <div class="cell">Motivo</div>
+                </div>
+
+                <div class="row">
+                    <div class="cell">Karen Perez</div>
+                    <div class="cell"><input type="radio" name="asistencia1" value="Presente"></div>
+                    <div class="cell"><input type="radio" name="asistencia1" value="Ausente"></div>
+                    <div class="cell"><input type="radio" name="asistencia1" value="Excusa"></div>
+                    <div class="cell"><input class="input-motivo" placeholder="Ingrese motivo:" name="motivo1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell">Adrian Bastidas</div>
+                    <div class="cell"><input type="radio" name="asistencia2" value="Presente"></div>
+                    <div class="cell"><input type="radio" name="asistencia2" value="Ausente"></div>
+                    <div class="cell"><input type="radio" name="asistencia2" value="Excusa"></div>
+                    <div class="cell"><input class="input-motivo" placeholder="Ingrese motivo:" name="motivo2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell">Katerin Henao</div>
+                    <div class="cell"><input type="radio" name="asistencia3" value="Presente"></div>
+                    <div class="cell"><input type="radio" name="asistencia3" value="Ausente"></div>
+                    <div class="cell"><input type="radio" name="asistencia3" value="Excusa"></div>
+                    <div class="cell"><input class="input-motivo" placeholder="Ingrese motivo:" name="motivo3"></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell">Juan Garcia</div>
+                    <div class="cell"><input type="radio" name="asistencia4" value="Presente"></div>
+                    <div class="cell"><input type="radio" name="asistencia4" value="Ausente"></div>
+                    <div class="cell"><input type="radio" name="asistencia4" value="Excusa"></div>
+                    <div class="cell"><input class="input-motivo" placeholder="Ingrese motivo:" name="motivo4"></div>
+                </div>
+
+            </div>
+
+            <div class="bottom-bar">
+                <button type="submit" class="guardar-btn">GUARDAR</button>
+            </div>
+        </form>
+
+        <div class="footer">Copyright © 2025 ECesde</div>
+
+    </div>
+
+</body>
+
+</html>

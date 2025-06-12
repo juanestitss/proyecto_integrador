@@ -1,0 +1,48 @@
+Inicio
+     total_Vehiculos, vehiculo_Actual, velocida
+    matriz velocidades 
+    entero N
+
+PROCESO
+    Imprima "Ingrese el tamaño de la matriz:"
+    lea N
+
+    si N > 0 entonces
+        crear matriz velocidades de tamaño N
+    sino
+        Imprima "No se creó la matriz porque el tamaño es inválido."
+    fin-si
+
+    Imprima "Ingrese el número de vehículos a evaluar:"
+    lea totalVehiculos
+
+    si totalVehiculos < 1
+        Imprima "Número inválido de vehículos."
+        termine
+    fin-si
+
+    vehiculoActual = 1
+
+    mientras vehiculoActual <= totalVehiculos
+        Imprima "Ingrese la velocidad del vehículo " + vehiculoActual + ":"
+        lea velocidad
+
+        si N > 0 entonces
+            velocidades[vehiculoActual - 1] = velocidad
+        sino
+            // No se almacena la velocidad porque no hay matriz
+        fin-si
+
+        vehiculoActual = vehiculoActual + 1
+    fin-mientras
+
+    si N > 0 entonces
+        Imprima "Las velocidades registradas son:"
+        para i = 0 hasta N-1
+            Imprima "Vehículo " + (i+1) + ": " + velocidades[i] + " km/h"
+        fin-para
+    sino
+        Imprima "No hay velocidades almacenadas porque la matriz no fue creada."
+    fin-si
+
+Fin

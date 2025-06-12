@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Velocidades</title>
+    <link rel="stylesheet" href="CSS/logicaprom.css">
+    
+</head>
+<body>
+    <h1>Ejercicio Cámara de Velocidad</h1>
+
+    <label for="matrixSize">Ingrese el tamaño de la matriz:</label>
+    <input type="number" id="matrixSize" min="1" placeholder="Tamaño de la matriz" />
+    <br><br>
+
+    <label for="numVehiculos">Ingrese el número de vehículos a evaluar:</label>
+    <input type="number" id="numVehiculos" min="1" placeholder="Número de vehículos" />
+    <br><br>
+
+    <button id="startBtn">Comenzar evaluación</button>
+
+    <div id="inputSection" style="display:none;">
+        <label id="velLabel" for="velocidadInput">Ingrese la velocidad del vehículo 1:</label>
+        <input type="number" id="velocidadInput" min="0" placeholder="Velocidad (km/h)" />
+        <button id="submitVelBtn">Registrar velocidad</button>
+    </div>
+
+    <div id="notifications"></div>
+    <div id="logOutput" aria-live="polite" class="log"></div>
+
+    <script>
+        (() => {
+            const velocidadLimiteMaxima = 60;
+            const velocidadLimiteMinima = 0;
+            let totalVehiculos = 0;
+            let vehiculoActual = 0;
+            const numVehiculosInput = document.getElementById('numVehiculos');
+            const startBtn = document.getElementById('startBtn');
+            const inputSection = document.getElementById('inputSection');
+            const velLabel = document.getElementById('velLabel');
+            const velocidadInput = document.getElementById('velocidadInput');
+            const submitVelBtn = document.getElementById('submitVelBtn');
+            const notifications = document.getElementById('notifications');
+            const logOutput = document.getElementById('logOutput');
+
+            startBtn.onclick = () => {
+                const n = parseInt(numVehiculosInput.value, 10);
+                if (isNaN(n) || n < 1) {
+                    alert('Por favor ingrese un número válido de vehículos (>= 1).');
+                    return;
+                }
+                totalVehiculos = n;
+                vehiculoActual = 1;
+                numVehiculosInput.disabled = true;
+                startBtn.disabled = true;
+                inputSection.style.display = 'block';
+                velLabel.textContent = `Ingrese la velocidad del vehículo ${vehiculoActual}:`;
+                velocidadInput.value = '';
+                velocidadInput.focus();
+                notifications.innerHTML = '';
+                logOutput.innerHTML = '';
+                printLog('Inicio evaluación de velocidades...');
+            };
+
+            submitVelBtn.onclick = () => {
+                const velocidad = parseFloat(velocidadInput.value);
+                if (isNaN(velocidad) || velocidad < velocidadLimiteMinima) {
+                    alert('Por favor ingrese una velocidad válida mayor o igual a ' + velocidadLimiteMinima + '.');
+                    return;
+                }
+                printLog(`Velocidad vehículo ${vehiculoActual}: ${velocidad} km/h`);
+                if (velocidad > velocidadLimiteMaxima) {
+                    const notif = document.createElement('div');
+                    notif.className = 'notification';
+                    notif.textContent = `Notificación: El vehículo ${vehiculoActual} ha superado el límite de velocidad.`;
+                    notifications.appendChild(notif);
+                    printLog(`Vehículo ${vehiculoActual} excedió el límite de velocidad (${velocidadLimiteMaxima} km/h).`);
+                }
+                vehiculoActual++;
+                if (vehiculoActual <= totalVehiculos) {
+                    velLabel.textContent = `Ingrese la velocidad del vehículo ${vehiculoActual}:`;
+                    velocidadInput.value = '';
+                    velocidadInput.focus();
+                } else {
+                    inputSection.style.display = 'none';
+                    numVehiculosInput.disabled = false;
+                    startBtn.disabled = false;
+                    printLog('Evaluación de velocidad completada.');
+                }
+            };
+
+            function printLog(message) {
+                const p = document.createElement('p');
+                p.textContent = message;
+                logOutput.appendChild(p);
+                logOutput.scrollTop = logOutput.scrollHeight;
+            }
+
+            // Accessibility: allow submit with Enter key
+            velocidadInput.onkeyup = (e) => {
+                if (e.key === 'Enter') submitVelBtn.onclick();
+            };
+        })();
+    </script>
+</body>
+</html>
